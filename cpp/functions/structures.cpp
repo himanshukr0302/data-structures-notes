@@ -33,10 +33,10 @@ struct Test
     int n;
 };
 
-void arr_pass(struct Test t1)
+void arr_pass(struct Test *t1)
 {
-    t1.A[0]=12;
-    t1.A[2]=827;
+    t1->A[0]=12;
+    t1->A[2]=827;
 }
 
 int main()
@@ -52,7 +52,11 @@ int main()
 
     // arrays 
     Test t1 = {{1,2,2,3,4},5};
-    arr_pass(t1);
-    cout<<t1.A[0]<<endl;
+    arr_pass(&t1);
+    cout<<"printing the t1 array: "<<endl;
+    for(int i=0;i<5;i++)
+    {
+        cout<<t1.A[i]<<" ";
+    }
 
 }
